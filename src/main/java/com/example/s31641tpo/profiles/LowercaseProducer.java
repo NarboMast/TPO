@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 public class LowercaseProducer implements MessageProducer{
     @Override
     public String toString(Entry entry) {
-        return "English: " + entry.getEnglish().toLowerCase() + ", German: " + entry.getGerman().toLowerCase() + ", Polish:" + entry.getPolish().toLowerCase();
+        return String.format("Id: %d ,English: %s, German: %s, Polish: %s",
+                entry.getId(),
+                entry.getEnglish().toLowerCase(),
+                entry.getGerman().toLowerCase(),
+                entry.getPolish().toLowerCase());
     }
 }

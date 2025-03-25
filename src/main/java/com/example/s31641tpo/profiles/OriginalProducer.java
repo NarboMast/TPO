@@ -9,6 +9,6 @@ import org.springframework.stereotype.Service;
 public class OriginalProducer implements MessageProducer{
     @Override
     public String toString(Entry entry) {
-        return "English: " + entry.getEnglish() + ", German: " + entry.getGerman() + ", Polish:" + entry.getPolish();
+        return entry.toString();
     }
 }

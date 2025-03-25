@@ -9,6 +9,10 @@ import org.springframework.stereotype.Service;
 public class UppercaseProducer implements MessageProducer{
     @Override
     public String toString(Entry entry) {
-        return "English: " + entry.getEnglish().toUpperCase() + ", German: " + entry.getGerman().toUpperCase() + ", Polish:" + entry.getPolish().toUpperCase();
+        return String.format("Id: %d ,English: %s, German: %s, Polish: %s",
+                entry.getId(),
+                entry.getEnglish().toUpperCase(),
+                entry.getGerman().toUpperCase(),
+                entry.getPolish().toUpperCase());
     }
 }

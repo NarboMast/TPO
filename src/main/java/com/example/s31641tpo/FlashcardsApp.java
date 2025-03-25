@@ -13,7 +13,7 @@ public class FlashcardsApp {
 
 	public static void main(String[] args) throws IOException {
 		ConfigurableApplicationContext context = SpringApplication.run(FlashcardsApp.class, args);
-		context.getBean(FileService.class).readFile();
+//		context.getBean(FileService.class).readFile();
 		context.getBean(FlashcardsController.class).start();
 	}
 
