@@ -11,9 +11,9 @@ import java.io.IOException;
 
 @Service
 public class FileService {
-    @Value("${pl.edu.pja.tpo02.words.csv}")
+    @Value("${dictionary}")
     private String filename;
-    private static final String COMMA_DELIMITER = ";";
+    private static final String COMMA_DELIMITER = ",";
     private final EntryRepository entryRepository;
 
     public FileService(EntryRepository entryRepository) {
@@ -25,7 +25,7 @@ public class FileService {
             String line = br.readLine();
             while ((line = br.readLine()) != null) {
                 String[] values = line.split(COMMA_DELIMITER);
-                entryRepository.addEntry(new Entry(values[0], values[1], values[2]));
+                entryRepository.addEntry(new Entry(Long.parseLong(values[0], 10), values[1], values[2], values[3]));
             }
         }
     }

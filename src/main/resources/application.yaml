@@ -5,20 +5,26 @@ spring:
     location: logo-app
     charset: UTF-8
   profiles:
-    active: lowercase
+    active: uppercase
   h2:
     console:
       enabled: true
       path: /my-h2-console
   datasource:
-    url: jdbc:h2:file:./db/dictionary;DATABASE_TO_UPPER=false
+    url: jdbc:h2:file:C:\Users\narbo\OneDrive\Рабочий стол\s31641-TPO\src\main\resources\h2db\dictionary\wordsFile;DATABASE_TO_UPPER=false
     username: narbo
     password: test
   jpa:
     show-sql: true
+    defer-datasource-initialization: true
     hibernate:
       ddl-auto: update
       naming:
           physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
-
-pl.edu.pja.tpo02.words.csv: src\main\resources\words.csv
+  sql:
+    init:
+      mode: always
+      platform: h2
+      schema-locations: classpath*:src/main/resources/schema.sql
+      data-locations: classpath*:src/main/resources/data.sql
+dictionary: src\main\resources\h2db\dictionary\wordsFile.mv.db
